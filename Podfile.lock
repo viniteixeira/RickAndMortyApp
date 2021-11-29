@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (5.4.4)
+  - VTCodeView (0.1.0):
+    - VTCodeView/CodeView (= 0.1.0)
+    - VTCodeView/ConstraintMaker (= 0.1.0)
+  - VTCodeView/CodeView (0.1.0)
+  - VTCodeView/ConstraintMaker (0.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.4)
+  - VTCodeView (from `https://github.com/viniteixeira/VTCodeView.git`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  VTCodeView:
+    :git: https://github.com/viniteixeira/VTCodeView.git
+
+CHECKOUT OPTIONS:
+  VTCodeView:
+    :commit: 56a3d2691210190d442a551f4818c46078e9013d
+    :git: https://github.com/viniteixeira/VTCodeView.git
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  VTCodeView: c7eda1dd2ebfe8fc5afca132ee04d634cb77fb29
+
+PODFILE CHECKSUM: 768dccbe49dccaf2e172cfcb906e9e9599df1681
+
+COCOAPODS: 1.11.2

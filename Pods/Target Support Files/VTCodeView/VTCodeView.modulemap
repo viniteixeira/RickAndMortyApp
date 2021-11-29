@@ -1,0 +1,6 @@
+framework module VTCodeView {
+  umbrella header "VTCodeView-umbrella.h"
+
+  export *
+  module * { export * }
+}

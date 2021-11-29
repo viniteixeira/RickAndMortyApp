@@ -1,0 +1,30 @@
+{
+  "name": "VTCodeView",
+  "version": "0.1.0",
+  "summary": "A short description of VTCodeView.",
+  "homepage": "https://github.com/Vinicius Teixeira/VTCodeView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Vinicius Teixeira": "viniteixeira10@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Vinicius Teixeira/VTCodeView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "subspecs": [
+    {
+      "name": "CodeView",
+      "source_files": "VTCodeView/Classes/CodeView/**/*"
+    },
+    {
+      "name": "ConstraintMaker",
+      "source_files": "VTCodeView/Classes/ConstraintMaker/**/*"
+    }
+  ]
+}
