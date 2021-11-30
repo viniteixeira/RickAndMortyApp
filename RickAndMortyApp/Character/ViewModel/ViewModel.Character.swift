@@ -5,6 +5,8 @@
 //  Created by Vinicius Teixeira on 11/11/21.
 //
 
+import Foundation
+
 extension ViewModel {
     
     class Character {
@@ -38,7 +40,25 @@ extension ViewModel {
         }
 
         func selected(_ character: Model.Character) {
-            worker.sendToCharacterView(character)
+            let group = DispatchGroup()
+            var episodes: [Model.Episode] = []
+
+            character.episode.forEach { episodeURL in
+                group.enter()
+                self.worker.fetchEpisode(episodeURL) { result in
+                    switch result {
+                    case .success(let episode):
+                        episodes.append(episode)
+                    case .failure: ()
+                    }
+                    group.leave()
+                }
+            }
+
+            group.notify(queue: .main) {
+                character.episodes = episodes
+                self.worker.sendToCharacterView(character)
+            }
         }
     }
 }

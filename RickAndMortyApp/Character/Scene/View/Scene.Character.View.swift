@@ -43,20 +43,22 @@ extension Scene.Character {
         private let nameLabel: UILabel = {
             let lb = UILabel()
             lb.textColor = .white
-            lb.font = .boldSystemFont(ofSize: 16)
+            lb.font = .boldSystemFont(ofSize: 22)
+            lb.numberOfLines = 0
             return lb
         }()
 
         private let statusLabel: UILabel = {
             let lb = UILabel()
             lb.textColor = .white
-            lb.font = .systemFont(ofSize: 13)
+            lb.font = .systemFont(ofSize: 19)
+            lb.numberOfLines = 0
             return lb
         }()
 
         private let locationDescriptionLabel: UILabel = {
             let lb = UILabel()
-            lb.font = .systemFont(ofSize: 13)
+            lb.font = .systemFont(ofSize: 19)
             lb.textColor = .lightGray
             lb.text = "Last known location:"
             return lb
@@ -65,13 +67,14 @@ extension Scene.Character {
         private let locationLabel: UILabel = {
             let lb = UILabel()
             lb.textColor = .white
-            lb.font = .systemFont(ofSize: 14)
+            lb.font = .systemFont(ofSize: 20)
+            lb.numberOfLines = 0
             return lb
         }()
 
         private let firstSeenDescriptionLabel: UILabel = {
             let lb = UILabel()
-            lb.font = .systemFont(ofSize: 13)
+            lb.font = .systemFont(ofSize: 19)
             lb.textColor = .lightGray
             lb.text = "First seen in:"
             return lb
@@ -80,9 +83,21 @@ extension Scene.Character {
         private let firstSeenLabel: UILabel = {
             let lb = UILabel()
             lb.textColor = .white
-            lb.font = .systemFont(ofSize: 14)
+            lb.font = .systemFont(ofSize: 20)
+            lb.numberOfLines = 0
             return lb
         }()
+
+        private let episodeDescriptionLabel: UILabel = {
+            let lb = UILabel()
+            lb.text = "Episodes"
+            lb.textColor = .white
+            lb.font = .boldSystemFont(ofSize: 22)
+            lb.numberOfLines = 0
+            return lb
+        }()
+
+        private let tableView = UITableView()
 
         // MARK: Properties
         private var character: Model.Character
@@ -108,6 +123,7 @@ extension Scene.Character {
             if let url = URL(string: character.image) {
                 charImageView.load(url: url)
             }
+            tableView.reloadData()
         }
 
         // MARK: CodeView
@@ -124,7 +140,11 @@ extension Scene.Character {
             headerStackView.addArrangedSubview(infoStackView)
 
             contentStackView.addArrangedSubview(headerStackView)
-            contentStackView.addArrangedSubview(UIView())
+            contentStackView.setCustomSpacing(16, after: headerStackView)
+            contentStackView.addArrangedSubview(episodeDescriptionLabel)
+            contentStackView.setCustomSpacing(8, after: episodeDescriptionLabel)
+            contentStackView.addArrangedSubview(tableView)
+//            contentStackView.addArrangedSubview(UIView())
             addSubview(contentStackView)
         }
 
@@ -135,14 +155,112 @@ extension Scene.Character {
                 contentStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
                 contentStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
 
-                charImageView.widthAnchor.constraint(equalToConstant: 200),
-                charImageView.heightAnchor.constraint(equalToConstant: 200)
+                charImageView.widthAnchor.constraint(equalToConstant: 190),
+                charImageView.heightAnchor.constraint(equalToConstant: 190)
             ])
         }
 
         func setupAdditionalConfiguration() {
             backgroundColor = UIColor(named: "PrimaryColor")
+
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.register(Cell.self, forCellReuseIdentifier: "Cell")
+            tableView.backgroundColor = .clear
             updateView()
+        }
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension Scene.Character.View: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return character.episodes.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
+        cell.episode = character.episodes[indexPath.row]
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension Scene.Character.View: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension Scene.Character.View {
+
+    class Cell: UITableViewCell, CodeView {
+
+        // MARK: Components
+        private let contentStackView: UIStackView = {
+            let sv = UIStackView()
+            sv.axis = .vertical
+            sv.spacing = 8
+            sv.translatesAutoresizingMaskIntoConstraints = false
+            sv.isLayoutMarginsRelativeArrangement = true
+            sv.layoutMargins = .init(top: 8, left: 16, bottom: 0, right: 16)
+            return sv
+        }()
+
+        private let nameLabel: UILabel = {
+            let lb = UILabel()
+            lb.textColor = .white
+            lb.font = .systemFont(ofSize: 16)
+            return lb
+        }()
+
+        private let separatorView = UIView()
+
+        // MARK: Properties
+        var episode: Model.Episode? {
+            didSet { updateCell() }
+        }
+
+        // MARK: Initializers
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+            setupView()
+        }
+
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        // MARK: Methods
+        private func updateCell() {
+            let name = "\(episode?.episode ?? "") - \(episode?.name ?? "")"
+            nameLabel.text = name
+        }
+
+        // MARK: CodeView
+        func buildViewHierarchy() {
+            contentStackView.addArrangedSubview(nameLabel)
+            contentStackView.addArrangedSubview(separatorView)
+
+            addSubview(contentStackView)
+        }
+
+        func setupConstraints() {
+            NSLayoutConstraint.activate([
+                contentStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                contentStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                contentStackView.topAnchor.constraint(equalTo: topAnchor),
+                contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+                separatorView.heightAnchor.constraint(equalToConstant: 1)
+            ])
+        }
+
+        func setupAdditionalConfiguration() {
+            backgroundColor = .clear
+            separatorView.backgroundColor = .white
         }
     }
 }

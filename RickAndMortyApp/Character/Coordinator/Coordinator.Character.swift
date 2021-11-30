@@ -21,6 +21,7 @@ extension Coordinator {
         var childCoordinators = [Coordinator]()
         var navController: UINavigationController
 
+        // MARK: Initializers
         init(navController: UINavigationController) {
             self.navController = navController
         }
