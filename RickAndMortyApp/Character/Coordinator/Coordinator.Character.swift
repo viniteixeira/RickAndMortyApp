@@ -8,9 +8,14 @@
 import Foundation
 import UIKit
 
+protocol CoordinatorCharacterProtocol {
+    func instatiate()
+    func sendToCharacterController(_ character: Model.Character)
+}
+
 extension Coordinator {
 
-    class Character: CoordinatorProtocol {
+    class Character: CoordinatorProtocol, CoordinatorCharacterProtocol {
 
         // MARK: Properties
         var childCoordinators = [Coordinator]()
@@ -26,6 +31,16 @@ extension Coordinator {
             let viewModel = ViewModel.Character(worker: worker)
             let listController = Scene.Character.ListViewController(viewModel: viewModel)
             navController.viewControllers.append(listController)
+        }
+
+        // MARK: CoordinatorCharacterProtocol
+        func instatiate() {
+            start()
+        }
+        
+        func sendToCharacterController(_ character: Model.Character) {
+            let controller = Scene.Character.ViewController(character: character)
+            navController.pushViewController(controller, animated: true)
         }
     }
 }

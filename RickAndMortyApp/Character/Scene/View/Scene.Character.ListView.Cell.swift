@@ -104,7 +104,8 @@ extension Scene.Character.ListView {
         // MARK: Methods
         private func updateCell() {
             nameLabel.text = character?.name ?? ""
-            statusLabel.text = character?.status ?? ""
+            let status = "\(character?.status ?? "") - \(character?.species ?? "")"
+            statusLabel.text = status
             locationLabel.text = character?.location.name ?? ""
             firstSeenLabel.text = character?.origin.name ?? ""
             if let url = URL(string: character?.image ?? "") {
@@ -157,7 +158,7 @@ extension Scene.Character.ListView {
 extension UIImageView {
 
     func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global().sync { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {

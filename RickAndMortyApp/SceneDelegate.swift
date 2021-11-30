@@ -9,14 +9,18 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    // MARK: Components
     var window: UIWindow?
 
+    // MARK: Properties
+    var coordinator: CoordinatorCharacterProtocol?
 
+    // MARK: UIWindowSceneDelegate
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         let navController = UINavigationController()
-        let coordinator = Coordinator.Character(navController: navController)
-        coordinator.start()
+        coordinator = Coordinator.Character(navController: navController)
+        coordinator?.instatiate()
         window = UIWindow(frame: .zero)
         window?.makeKeyAndVisible()
         window?.rootViewController = navController

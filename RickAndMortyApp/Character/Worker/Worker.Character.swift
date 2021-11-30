@@ -33,5 +33,9 @@ extension Worker {
                 }
             }
         }
+
+        func sendToCharacterView(_ character: Model.Character) {
+            coordinator.sendToCharacterController(character)
+        }
     }
 }

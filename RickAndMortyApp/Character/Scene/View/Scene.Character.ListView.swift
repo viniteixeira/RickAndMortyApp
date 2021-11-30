@@ -55,6 +55,7 @@ extension Scene.Character {
 
             tableView.backgroundColor = .clear
             tableView.dataSource = self
+            tableView.delegate = self
             tableView.register(Cell.self, forCellReuseIdentifier: "Cell")
         }
     }
@@ -73,3 +74,13 @@ extension Scene.Character.ListView: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - UITableViewDelegate
+extension Scene.Character.ListView: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.selected(viewModel.characters[indexPath.row])
+    }
+}
+

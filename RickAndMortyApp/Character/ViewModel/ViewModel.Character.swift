@@ -36,5 +36,9 @@ extension ViewModel {
                 }
             }
         }
+
+        func selected(_ character: Model.Character) {
+            worker.sendToCharacterView(character)
+        }
     }
 }
