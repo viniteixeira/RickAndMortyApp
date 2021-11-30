@@ -7,10 +7,20 @@
 
 extension Model {
 
-    struct Episode {
+    class Episode {
 
-        let id: Int
-        let name: String
-        let episode: String
+        // MARK: Properties
+        var id: Int = 0
+        var name: String = ""
+        var episode: String = ""
+
+        // MARK: Initializers
+        init() {}
+        
+        init(id: Int, name: String, episode: String) {
+            self.id = id
+            self.name = name
+            self.episode = episode
+        }
     }
 }

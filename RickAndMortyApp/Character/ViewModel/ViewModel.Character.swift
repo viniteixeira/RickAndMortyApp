@@ -57,8 +57,12 @@ extension ViewModel {
 
             group.notify(queue: .main) {
                 character.episodes = episodes
-                self.worker.sendToCharacterView(character)
+                self.worker.sendToCharacterView(character, viewModel: self)
             }
+        }
+
+        func sendToEpisodeView(_ episode: Model.Episode) {
+            
         }
     }
 }

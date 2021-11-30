@@ -48,8 +48,12 @@ extension Worker {
             }
         }
 
-        func sendToCharacterView(_ character: Model.Character) {
-            coordinator.sendToCharacterController(character)
+        func sendToCharacterView(_ character: Model.Character, viewModel: ViewModel.Character) {
+            coordinator.sendToCharacterController(character, viewModel: viewModel)
+        }
+
+        func sendToEpisodeView(_ episode: Model.Episode) {
+            coordinator.sendToEpisodeController(episode)
         }
     }
 }

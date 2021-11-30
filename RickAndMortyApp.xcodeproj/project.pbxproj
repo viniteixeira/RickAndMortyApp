@@ -35,6 +35,11 @@
 		1BFE60E82756955300F8F964 /* Repository.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60E72756955300F8F964 /* Repository.Episode.swift */; };
 		1BFE60EC27569A8400F8F964 /* DataTransfer.Receive.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60EB27569A8400F8F964 /* DataTransfer.Receive.Episode.swift */; };
 		1BFE60EF2756A3C400F8F964 /* Model.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60EE2756A3C400F8F964 /* Model.Episode.swift */; };
+		1BFE60F12756B82E00F8F964 /* Scene.Character.View.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60F02756B82D00F8F964 /* Scene.Character.View.Cell.swift */; };
+		1BFE60F42756BC4500F8F964 /* Coordinator.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60F32756BC4500F8F964 /* Coordinator.Episode.swift */; };
+		1BFE60F72756BF4100F8F964 /* Scene.Episode.ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60F62756BF4100F8F964 /* Scene.Episode.ViewController.swift */; };
+		1BFE60FA2756BFB200F8F964 /* Worker.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60F92756BFB200F8F964 /* Worker.Episode.swift */; };
+		1BFE60FD2756C0FF00F8F964 /* ViewModel.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60FC2756C0FF00F8F964 /* ViewModel.Episode.swift */; };
 		D09D3DC5FA7E5CFEB254BB73 /* Pods_RickAndMortyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C728E71856D5CDA44963793B /* Pods_RickAndMortyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +74,11 @@
 		1BFE60E72756955300F8F964 /* Repository.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.Episode.swift; sourceTree = "<group>"; };
 		1BFE60EB27569A8400F8F964 /* DataTransfer.Receive.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransfer.Receive.Episode.swift; sourceTree = "<group>"; };
 		1BFE60EE2756A3C400F8F964 /* Model.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Episode.swift; sourceTree = "<group>"; };
+		1BFE60F02756B82D00F8F964 /* Scene.Character.View.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.Character.View.Cell.swift; sourceTree = "<group>"; };
+		1BFE60F32756BC4500F8F964 /* Coordinator.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.Episode.swift; sourceTree = "<group>"; };
+		1BFE60F62756BF4100F8F964 /* Scene.Episode.ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.Episode.ViewController.swift; sourceTree = "<group>"; };
+		1BFE60F92756BFB200F8F964 /* Worker.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.Episode.swift; sourceTree = "<group>"; };
+		1BFE60FC2756C0FF00F8F964 /* ViewModel.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.Episode.swift; sourceTree = "<group>"; };
 		82B2D47FEA235937ED746A50 /* Pods-RickAndMortyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyApp.release.xcconfig"; path = "Target Support Files/Pods-RickAndMortyApp/Pods-RickAndMortyApp.release.xcconfig"; sourceTree = "<group>"; };
 		C728E71856D5CDA44963793B /* Pods_RickAndMortyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RickAndMortyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED76345D1F49DC7F81AAA9E5 /* Pods-RickAndMortyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyApp.debug.xcconfig"; path = "Target Support Files/Pods-RickAndMortyApp/Pods-RickAndMortyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +102,7 @@
 				1B5EE3672755781B00961C80 /* Scene.Character.View.swift */,
 				1B5EE36B275578BD00961C80 /* Scene.Character.ListView.swift */,
 				1B5EE36D2755813C00961C80 /* Scene.Character.ListView.Cell.swift */,
+				1BFE60F02756B82D00F8F964 /* Scene.Character.View.Cell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,8 +256,12 @@
 		1BFE60E52756950100F8F964 /* Episode */ = {
 			isa = PBXGroup;
 			children = (
+				1BFE60F22756BC3300F8F964 /* Coordinator */,
 				1BFE60ED2756A39E00F8F964 /* Model */,
 				1BFE60E62756953300F8F964 /* Repository */,
+				1BFE60F52756BF1B00F8F964 /* Scene */,
+				1BFE60FB2756BFBB00F8F964 /* ViewModel */,
+				1BFE60F82756BF9B00F8F964 /* Worker */,
 			);
 			path = Episode;
 			sourceTree = "<group>";
@@ -282,6 +297,38 @@
 				1BFE60EE2756A3C400F8F964 /* Model.Episode.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1BFE60F22756BC3300F8F964 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE60F32756BC4500F8F964 /* Coordinator.Episode.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1BFE60F52756BF1B00F8F964 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE60F62756BF4100F8F964 /* Scene.Episode.ViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		1BFE60F82756BF9B00F8F964 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE60F92756BFB200F8F964 /* Worker.Episode.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		1BFE60FB2756BFBB00F8F964 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE60FC2756C0FF00F8F964 /* ViewModel.Episode.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6E1946DA171D53B487A9504B /* Pods */ = {
@@ -416,12 +463,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFE60F12756B82E00F8F964 /* Scene.Character.View.Cell.swift in Sources */,
 				1B423B212755BAF100E6E0CD /* Observable.swift in Sources */,
 				1B5EE36C275578BD00961C80 /* Scene.Character.ListView.swift in Sources */,
 				1B5EE36A2755787200961C80 /* Scene.Character.ListViewController.swift in Sources */,
 				1B5EE3682755781B00961C80 /* Scene.Character.View.swift in Sources */,
 				1BD976FA273DE87A00A899B2 /* Model.Character.swift in Sources */,
 				1BD976F5273DE4E300A899B2 /* Repository.Character.swift in Sources */,
+				1BFE60FD2756C0FF00F8F964 /* ViewModel.Episode.swift in Sources */,
 				1BD976E9273DE0D700A899B2 /* Repository.swift in Sources */,
 				1B5EE36E2755813C00961C80 /* Scene.Character.ListView.Cell.swift in Sources */,
 				1BD976FD273DEAFF00A899B2 /* ViewModel.swift in Sources */,
@@ -434,9 +483,12 @@
 				1BD976FF273DEB1800A899B2 /* ViewModel.Character.swift in Sources */,
 				1BD976D3273DDB3A00A899B2 /* SceneDelegate.swift in Sources */,
 				1B5EE3632755765100961C80 /* Service.swift in Sources */,
+				1BFE60F72756BF4100F8F964 /* Scene.Episode.ViewController.swift in Sources */,
 				1BD976E7273DDE0300A899B2 /* Model.swift in Sources */,
 				1BD976F7273DE7A200A899B2 /* Worker.Character.swift in Sources */,
+				1BFE60FA2756BFB200F8F964 /* Worker.Episode.swift in Sources */,
 				1BFE60E82756955300F8F964 /* Repository.Episode.swift in Sources */,
+				1BFE60F42756BC4500F8F964 /* Coordinator.Episode.swift in Sources */,
 				1BFE60EF2756A3C400F8F964 /* Model.Episode.swift in Sources */,
 				1B34CE82273EA4DB00D2E438 /* Scene.Character.ViewController.swift in Sources */,
 				1BD976F2273DE49E00A899B2 /* Worker.swift in Sources */,

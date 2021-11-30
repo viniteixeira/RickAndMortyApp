@@ -10,7 +10,8 @@ import UIKit
 
 protocol CoordinatorCharacterProtocol {
     func instatiate()
-    func sendToCharacterController(_ character: Model.Character)
+    func sendToCharacterController(_ character: Model.Character, viewModel: ViewModel.Character)
+    func sendToEpisodeController(_ episode: Model.Episode)
 }
 
 extension Coordinator {
@@ -31,7 +32,7 @@ extension Coordinator {
             let worker = Worker.Character(repository: .init(), coordinator: self)
             let viewModel = ViewModel.Character(worker: worker)
             let listController = Scene.Character.ListViewController(viewModel: viewModel)
-            navController.viewControllers.append(listController)
+            navController.pushViewController(listController, animated: true)
         }
 
         // MARK: CoordinatorCharacterProtocol
@@ -39,9 +40,15 @@ extension Coordinator {
             start()
         }
         
-        func sendToCharacterController(_ character: Model.Character) {
-            let controller = Scene.Character.ViewController(character: character)
+        func sendToCharacterController(_ character: Model.Character, viewModel: ViewModel.Character) {
+            let controller = Scene.Character.ViewController(character: character, viewModel: viewModel)
             navController.pushViewController(controller, animated: true)
+        }
+
+        func sendToEpisodeController(_ episode: Model.Episode) {
+            var coordinator: CoordinatorEpisodeProtocol = Coordinator.Episode(navController: navController)
+            coordinator.episode = episode
+            coordinator.instantiate()
         }
     }
 }

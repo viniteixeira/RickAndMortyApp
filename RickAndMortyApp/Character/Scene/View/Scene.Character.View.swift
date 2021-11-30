@@ -8,6 +8,10 @@
 import UIKit
 import VTCodeView
 
+protocol SceneCharacterViewDelegate {
+    func selected(_ episode: Model.Episode)
+}
+
 extension Scene.Character {
 
     class View: UIView, CodeView {
@@ -101,6 +105,7 @@ extension Scene.Character {
 
         // MARK: Properties
         private var character: Model.Character
+        var delegate: SceneCharacterViewDelegate?
 
         // MARK: Initializers
         init(character: Model.Character) {
@@ -135,7 +140,7 @@ extension Scene.Character {
             infoStackView.addArrangedSubview(firstSeenDescriptionLabel)
             infoStackView.addArrangedSubview(firstSeenLabel)
             infoStackView.addArrangedSubview(UIView())
-            
+
             headerStackView.addArrangedSubview(charImageView)
             headerStackView.addArrangedSubview(infoStackView)
 
@@ -144,7 +149,6 @@ extension Scene.Character {
             contentStackView.addArrangedSubview(episodeDescriptionLabel)
             contentStackView.setCustomSpacing(8, after: episodeDescriptionLabel)
             contentStackView.addArrangedSubview(tableView)
-//            contentStackView.addArrangedSubview(UIView())
             addSubview(contentStackView)
         }
 
@@ -190,77 +194,6 @@ extension Scene.Character.View: UITableViewDataSource {
 extension Scene.Character.View: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-extension Scene.Character.View {
-
-    class Cell: UITableViewCell, CodeView {
-
-        // MARK: Components
-        private let contentStackView: UIStackView = {
-            let sv = UIStackView()
-            sv.axis = .vertical
-            sv.spacing = 8
-            sv.translatesAutoresizingMaskIntoConstraints = false
-            sv.isLayoutMarginsRelativeArrangement = true
-            sv.layoutMargins = .init(top: 8, left: 16, bottom: 0, right: 16)
-            return sv
-        }()
-
-        private let nameLabel: UILabel = {
-            let lb = UILabel()
-            lb.textColor = .white
-            lb.font = .systemFont(ofSize: 16)
-            return lb
-        }()
-
-        private let separatorView = UIView()
-
-        // MARK: Properties
-        var episode: Model.Episode? {
-            didSet { updateCell() }
-        }
-
-        // MARK: Initializers
-        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-            setupView()
-        }
-
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-
-        // MARK: Methods
-        private func updateCell() {
-            let name = "\(episode?.episode ?? "") - \(episode?.name ?? "")"
-            nameLabel.text = name
-        }
-
-        // MARK: CodeView
-        func buildViewHierarchy() {
-            contentStackView.addArrangedSubview(nameLabel)
-            contentStackView.addArrangedSubview(separatorView)
-
-            addSubview(contentStackView)
-        }
-
-        func setupConstraints() {
-            NSLayoutConstraint.activate([
-                contentStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                contentStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                contentStackView.topAnchor.constraint(equalTo: topAnchor),
-                contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-
-                separatorView.heightAnchor.constraint(equalToConstant: 1)
-            ])
-        }
-
-        func setupAdditionalConfiguration() {
-            backgroundColor = .clear
-            separatorView.backgroundColor = .white
-        }
+        delegate?.selected(character.episodes[indexPath.row])
     }
 }
