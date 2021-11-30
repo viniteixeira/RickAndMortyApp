@@ -11,10 +11,12 @@ extension Worker {
         
         // MARK: Properties
         private let repository: Repository.Character
+        private let coordinator: Coordinator.Character
         
         // MARK: Initializers
-        init(repository: Repository.Character) {
+        init(repository: Repository.Character, coordinator: Coordinator.Character) {
             self.repository = repository
+            self.coordinator = coordinator
         }
         
         // MARK: Methods
@@ -24,21 +26,7 @@ extension Worker {
                 case .success(let data):
                     var characters: [Model.Character] = []
                     data.results.forEach { character in
-                        characters.append(
-                            .init(
-                                id: character.id ?? 0,
-                                name: character.name ?? "",
-                                status: character.status ?? "",
-                                species: character.species ?? "",
-                                type: character.type ?? "",
-                                gender: character.gender ?? "",
-                                origin: .init(name: character.origin.name, url: character.origin.url),
-                                location: .init(name: character.location.name, url: character.location.url),
-                                image: character.image,
-                                episode: character.episode,
-                                url: character.url,
-                                created: character.created)
-                        )
+                        characters.append(character.toModelCharacter())
                     }
                     completion(.success(characters))
                 case .failure: ()

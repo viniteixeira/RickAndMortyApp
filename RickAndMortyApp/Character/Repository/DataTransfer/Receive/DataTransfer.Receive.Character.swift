@@ -33,3 +33,23 @@ extension Repository.DataTransfer.Receive {
         }
     }
 }
+
+extension Repository.DataTransfer.Receive.Character.Result {
+
+    func toModelCharacter() -> Model.Character {
+        return Model.Character(
+            id: id ?? 0,
+            name: name ?? "",
+            status: status ?? "",
+            species: species ?? "",
+            type: type ?? "",
+            gender: gender ?? "",
+            origin: .init(name: origin?.name ?? "", url: origin?.url ?? ""),
+            location: .init(name: location?.name ?? "", url: location?.url ?? ""),
+            image: image ?? "",
+            episode: episode,
+            url: url ?? "",
+            created: created ?? ""
+        )
+    }
+}

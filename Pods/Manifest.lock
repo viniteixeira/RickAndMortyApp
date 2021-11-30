@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   VTCodeView:
-    :commit: 56a3d2691210190d442a551f4818c46078e9013d
+    :commit: 03a528e5790f00f0b3f1d4d238803affe8e1909c
     :git: https://github.com/viniteixeira/VTCodeView.git
 
 SPEC CHECKSUMS:

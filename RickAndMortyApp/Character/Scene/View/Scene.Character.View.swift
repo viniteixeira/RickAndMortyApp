@@ -11,6 +11,21 @@ import VTCodeView
 extension Scene.Character {
 
     class View: UIView, CodeView {
+
+
+        // MARK: CodeView
+        func buildViewHierarchy() {
+
+        }
+
+        func setupConstraints() {
+
+        }
+
+        func setupAdditionalConfiguration() {
+            
+        }
+
         
     }
 }

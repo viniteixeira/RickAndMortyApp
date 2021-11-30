@@ -10,12 +10,14 @@ import Foundation
 class Service {
 
     // MARK: Properties
-    public static var baseURL: String = ""
+    public static var baseURL: String {
+        get { getURLPlist() }
+    }
 
     // MARK: Methods
-    private func getURLPlist() -> String {
+    private static func getURLPlist() -> String {
         var urlString: String = ""
-        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "Services", ofType: "plist") {
             let dictionary = NSDictionary(contentsOfFile: path)
             urlString = (dictionary?.value(forKey: "url") as? String) ?? ""
          }
