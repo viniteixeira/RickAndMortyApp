@@ -10,16 +10,25 @@ import SwiftUI
 extension Scenes.Character.SwiftUI {
 
     struct ListView: View {
+
+        // MARK: Properties
+        var characters: [Model.Character]
+
+        // MARK: Body
         var body: some View {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            NavigationView {
+//                List(characters) { character in
+//
+//
+//                }
+//                .navigationTitle("Characters")
+            }
         }
     }
 }
 
-extension Scenes.Character.SwiftUI.ListView {
-    struct Previews: PreviewProvider {
-        static var previews: some View {
-            Scenes.Character.SwiftUI.ListView()
-        }
+struct CharacterListViewPreviews: PreviewProvider {
+    static var previews: some View {
+        Scenes.Character.SwiftUI.ListView(characters: Mock.getCharacters())
     }
 }

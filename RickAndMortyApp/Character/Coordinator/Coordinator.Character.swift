@@ -10,8 +10,8 @@ import UIKit
 
 protocol CoordinatorCharacterProtocol {
     func instatiate()
-    func sendToCharacterController(_ character: Model.Character, viewModel: ViewModel.Character)
-    func sendToEpisodeController(_ episode: Model.Episode)
+    func sendToCharacter(_ character: Model.Character, viewModel: ViewModel.Character)
+    func sendToEpisode(_ episode: Model.Episode)
 }
 
 extension Coordinator {
@@ -27,28 +27,46 @@ extension Coordinator {
             self.navController = navController
         }
 
+        // MARK: Methods
+        private func startWithSwiftUI() {}
+
+        #if RickAndMortyApp
+        private func startWithCodeView(_ viewModel: ViewModel.Character) {
+            let listController = Scenes.Character.ListViewController(viewModel: viewModel)
+            navController.pushViewController(listController, animated: true)
+        }
+
+        private func sendToCharacterController(_ character: Model.Character, viewModel: ViewModel.Character) {
+            let controller = Scenes.Character.ViewController(character: character, viewModel: viewModel)
+            navController.pushViewController(controller, animated: true)
+        }
+
+        #endif
+
         // MARK: CoordinatorProtocol
         func start() {
             let worker = Worker.Character(repository: .init(), coordinator: self)
             let viewModel = ViewModel.Character(worker: worker)
-            let listController = Scenes.Character.ListViewController(viewModel: viewModel)
-            navController.pushViewController(listController, animated: true)
+            #if RickAndMortyApp
+            startWithCodeView(viewModel)
+            #endif
         }
 
         // MARK: CoordinatorCharacterProtocol
         func instatiate() {
             start()
         }
-        
-        func sendToCharacterController(_ character: Model.Character, viewModel: ViewModel.Character) {
-            let controller = Scenes.Character.ViewController(character: character, viewModel: viewModel)
-            navController.pushViewController(controller, animated: true)
+
+        func sendToCharacter(_ character: Model.Character, viewModel: ViewModel.Character) {
+            #if RickAndMortyApp
+            sendToCharacterController(character, viewModel: viewModel)
+            #endif
         }
 
-        func sendToEpisodeController(_ episode: Model.Episode) {
-            var coordinator: CoordinatorEpisodeProtocol = Coordinator.Episode(navController: navController)
-            coordinator.episode = episode
-            coordinator.instantiate()
+        func sendToEpisode(_ episode: Model.Episode) {
+//            var coordinator: CoordinatorEpisodeProtocol = Coordinator.Episode(navController: navController)
+//            coordinator.episode = episode
+//            coordinator.instantiate()
         }
     }
 }
