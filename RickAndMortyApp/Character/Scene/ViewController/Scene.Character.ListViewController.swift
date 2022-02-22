@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension Scene.Character {
+extension Scenes.Character {
 
     class ListViewController: UIViewController {
 

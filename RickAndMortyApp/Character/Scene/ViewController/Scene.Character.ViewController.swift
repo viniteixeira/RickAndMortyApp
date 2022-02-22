@@ -7,13 +7,7 @@
 
 import UIKit
 
-extension Scene {
-
-    enum Character {}
-
-}
-
-extension Scene.Character {
+extension Scenes.Character {
 
     class ViewController: UIViewController {
 
@@ -50,7 +44,7 @@ extension Scene.Character {
     }
 }
 
-extension Scene.Character.ViewController: SceneCharacterViewDelegate {
+extension Scenes.Character.ViewController: SceneCharacterViewDelegate {
     func selected(_ episode: Model.Episode) {
         viewModel.sendToEpisodeView(episode)
     }
