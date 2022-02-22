@@ -31,7 +31,7 @@ extension Coordinator {
         func start() {
             let worker = Worker.Character(repository: .init(), coordinator: self)
             let viewModel = ViewModel.Character(worker: worker)
-            let listController = Scene.Character.ListViewController(viewModel: viewModel)
+            let listController = Scenes.Character.ListViewController(viewModel: viewModel)
             navController.pushViewController(listController, animated: true)
         }
 
@@ -41,7 +41,7 @@ extension Coordinator {
         }
         
         func sendToCharacterController(_ character: Model.Character, viewModel: ViewModel.Character) {
-            let controller = Scene.Character.ViewController(character: character, viewModel: viewModel)
+            let controller = Scenes.Character.ViewController(character: character, viewModel: viewModel)
             navController.pushViewController(controller, animated: true)
         }
 

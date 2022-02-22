@@ -8,7 +8,7 @@
 import UIKit
 import VTCodeView
 
-extension Scene.Character {
+extension Scenes.Character {
 
     class ListView: UIView, CodeView {
 
@@ -62,7 +62,7 @@ extension Scene.Character {
 }
 
 // MARK: - UITableViewDataSource
-extension Scene.Character.ListView: UITableViewDataSource {
+extension Scenes.Character.ListView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.characters.count
@@ -76,7 +76,7 @@ extension Scene.Character.ListView: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension Scene.Character.ListView: UITableViewDelegate {
+extension Scenes.Character.ListView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

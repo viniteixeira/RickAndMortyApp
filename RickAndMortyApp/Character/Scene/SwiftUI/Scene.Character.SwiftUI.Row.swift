@@ -1,5 +1,5 @@
 //
-//  Scene.Character.SwiftUI.Cell.swift
+//  Scene.Character.SwiftUI.Row.swift
 //  RickAndMortyApp
 //
 //  Created by Vinicius Teixeira on 22/02/22.
@@ -9,9 +9,9 @@ import SwiftUI
 
 extension Scenes.Character.SwiftUI {
 
-    struct Cell: View {
+    struct Row: View {
 
-        var character: Model.C
+        var character: Model.Character
 
         var body: some View {
             HStack {
@@ -22,8 +22,8 @@ extension Scenes.Character.SwiftUI {
     }
 }
 
-struct CharacterCellPreviews: PreviewProvider {
-    static var previews: some View {
-        Scenes.Character.SwiftUI.Cell()
-    }
-}
+//struct CharacterCellPreviews: PreviewProvider {
+//    static var previews: some View {
+//        Scenes.Character.SwiftUI.Row()
+//    }
+//}

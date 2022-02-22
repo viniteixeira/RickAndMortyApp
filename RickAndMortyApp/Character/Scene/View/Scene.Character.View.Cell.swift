@@ -8,7 +8,7 @@
 import UIKit
 import VTCodeView
 
-extension Scene.Character.View {
+extension Scenes.Character.View {
 
     class Cell: UITableViewCell, CodeView {
 

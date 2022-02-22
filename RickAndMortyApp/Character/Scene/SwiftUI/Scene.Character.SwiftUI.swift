@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+extension Scenes.Character {
+    enum SwiftUI {}
+}

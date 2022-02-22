@@ -12,7 +12,7 @@ protocol SceneCharacterViewDelegate {
     func selected(_ episode: Model.Episode)
 }
 
-extension Scene.Character {
+extension Scenes.Character {
 
     class View: UIView, CodeView {
 
@@ -177,7 +177,7 @@ extension Scene.Character {
 }
 
 // MARK: - UITableViewDataSource
-extension Scene.Character.View: UITableViewDataSource {
+extension Scenes.Character.View: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return character.episodes.count
@@ -191,7 +191,7 @@ extension Scene.Character.View: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension Scene.Character.View: UITableViewDelegate {
+extension Scenes.Character.View: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.selected(character.episodes[indexPath.row])

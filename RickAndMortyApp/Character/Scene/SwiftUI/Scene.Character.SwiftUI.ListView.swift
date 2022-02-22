@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-extension Scenes.Character {
+extension Scenes.Character.SwiftUI {
 
-    struct ListViewSwiftUI: View {
+    struct ListView: View {
         var body: some View {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         }
     }
 }
 
-extension Scenes.Character.ListViewSwiftUI {
+extension Scenes.Character.SwiftUI.ListView {
     struct Previews: PreviewProvider {
         static var previews: some View {
-            Scenes.Character.ListViewSwiftUI()
+            Scenes.Character.SwiftUI.ListView()
         }
     }
 }
