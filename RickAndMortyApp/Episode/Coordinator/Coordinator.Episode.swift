@@ -32,7 +32,7 @@ extension Coordinator {
         func start() {
             let worker = Worker.Episode(repository: .init(), coordinator: self)
             let viewModel = ViewModel.Episode(worker: worker, episode: episode)
-            let controller = Scene.Episode.ViewController(viewModel: viewModel)
+            let controller = Scenes.Episode.ViewController(viewModel: viewModel)
             navController.pushViewController(controller, animated: true)
         }
 

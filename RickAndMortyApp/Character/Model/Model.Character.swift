@@ -25,6 +25,21 @@ extension Model {
         var episodes: [Model.Episode] = []
 
         // MARK: Initalizers
+        init() {
+            self.id = 0
+            self.name = ""
+            self.status = ""
+            self.species = ""
+            self.type = ""
+            self.gender = ""
+            self.origin = .init(name: "", url: "")
+            self.location = .init(name: "", url: "")
+            self.image = ""
+            self.episode = []
+            self.url = ""
+            self.created = ""
+        }
+        
         init(id: Int, name: String, status: String,
              species: String, type: String, gender: String,
              origin: Model.Character.Info, location: Model.Character.Info,

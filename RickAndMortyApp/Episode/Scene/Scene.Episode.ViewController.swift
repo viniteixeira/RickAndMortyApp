@@ -7,13 +7,13 @@
 
 import UIKit
 
-extension Scene {
+extension Scenes {
 
     enum Episode {}
 
 }
 
-extension Scene.Episode {
+extension Scenes.Episode {
 
     class ViewController: UIViewController {
 

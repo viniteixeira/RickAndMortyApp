@@ -9,7 +9,7 @@ import UIKit
 import VTCodeView
 import Alamofire
 
-extension Scene.Character.ListView {
+extension Scenes.Character.ListView {
 
     class Cell: UITableViewCell, CodeView {
 
