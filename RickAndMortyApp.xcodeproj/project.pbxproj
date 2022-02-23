@@ -77,6 +77,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B1C967327C5CA8E00BDC2B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1B423B202755BAF100E6E0CD /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1B5EE35E2755751200961C80 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1B5EE3602755759A00961C80 /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		1BB38BBB27C57268007A49D0 /* RickAndMortyAppSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1B1C967327C5CA8E00BDC2B6 /* Info.plist */,
 				1BB38BBC27C57268007A49D0 /* RickAndMortyAppSwiftUIApp.swift */,
 				1BB38BC227C5726C007A49D0 /* Preview Content */,
 				1BB38BEC27C58FA4007A49D0 /* ImageLoader.swift */,
@@ -746,6 +748,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMortyAppSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RickAndMortyAppSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -776,6 +779,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMortyAppSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RickAndMortyAppSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

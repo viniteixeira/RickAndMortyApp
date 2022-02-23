@@ -16,14 +16,30 @@ extension Scenes.Character.SwiftUI {
 
         // MARK: Body
         var body: some View {
-            NavigationView {
-//                List(characters) { character in
-//
-//
-//                }
-//                .navigationTitle("Characters")
+            ZStack {
+                Color(uiColor: UIColor(named: "PrimaryColor")!)
+                    .ignoresSafeArea()
+                NavigationView {
+                    List(characters, id: \.id) { character in
+                        Scenes.Character.SwiftUI.Row(character: character)
+                            .frame(width: UIScreen.main.bounds.width-16, height: 156)
+                            .listRowInsets(.init(top: 0, leading: 8, bottom: 8, trailing: 8))
+                            .cornerRadius(8)
+                            .listRowBackground(Color.clear)
+                    }.listStyle(PlainListStyle())
+
+                    .navigationTitle("Characters")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .background(Color(uiColor: .init(named: "PrimaryColor")!))
+
+                }
+                .onAppear { self.setNavigationBarAppearance() }
             }
         }
+
+        private func setNavigationBarAppearance(){
+            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor.white]
+         }
     }
 }
 

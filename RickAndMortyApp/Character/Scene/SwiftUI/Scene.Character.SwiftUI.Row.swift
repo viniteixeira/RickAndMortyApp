@@ -66,7 +66,6 @@ extension Scenes.Character.SwiftUI {
                 Spacer()
 
             }.ignoresSafeArea()
-                .cornerRadius(8)
                 .background(Color(UIColor(named: "CellColor")!))
         }
     }
