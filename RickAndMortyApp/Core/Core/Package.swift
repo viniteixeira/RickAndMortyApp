@@ -9,11 +9,16 @@ let package = Package(
         .library(
             name: "Core",
             targets: ["Core"]),
+        .library(name: "CoreUI",
+                 targets: ["CoreUI"])
     ],
     dependencies: [],
     targets: [
         .target(
             name: "Core",
+            dependencies: []),
+        .target(
+            name: "CoreUI",
             dependencies: []),
         .testTarget(
             name: "CoreTests",

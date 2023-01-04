@@ -50,6 +50,7 @@
 /* Begin PBXFileReference section */
 		1B423B202755BAF100E6E0CD /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1B5BB5CE2965B7F30009AAE6 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		1B5BB5CF2965B9120009AAE6 /* Character */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Character; sourceTree = "<group>"; };
 		1B5EE35E2755751200961C80 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1B5EE3602755759A00961C80 /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
 		1B5EE3622755765100961C80 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		1B5BB5CC2965B7400009AAE6 /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				1B5BB5CF2965B9120009AAE6 /* Character */,
 			);
 			path = Character;
 			sourceTree = "<group>";
