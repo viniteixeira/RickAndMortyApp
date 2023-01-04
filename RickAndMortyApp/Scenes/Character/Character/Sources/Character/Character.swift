@@ -1,6 +1,6 @@
 import Foundation
 
-class Character {
+public class Character {
 
     // MARK: Properties
     let id: Int
@@ -15,7 +15,6 @@ class Character {
     let episode: [String]
     let url: String
     let created: String
-//    var episodes: [Model.Episode] = []
 
     // MARK: Inits
     init() {

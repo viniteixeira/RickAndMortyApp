@@ -4,27 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "Character",
+    name: "Episode",
     platforms: [.iOS(.v11)],
     products: [
         .library(
-            name: "Character",
-            targets: ["Character"]),
+            name: "Episode",
+            targets: ["Episode"]),
     ],
     dependencies: [
         .package(path: "../../Core"),
-        .package(path: "../Episode"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.6.1"))
     ],
     targets: [
         .target(
-            name: "Character",
+            name: "Episode",
             dependencies: ["Core",
-                           "Episode",
-                           "Alamofire",
-                           .product(name: "CoreUI", package: "Core")]),
+                           "Alamofire"]),
         .testTarget(
-            name: "CharacterTests",
-            dependencies: ["Character"]),
+            name: "EpisodeTests",
+            dependencies: ["Episode"]),
     ]
 )

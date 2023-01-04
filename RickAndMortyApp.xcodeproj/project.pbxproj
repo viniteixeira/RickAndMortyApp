@@ -17,16 +17,10 @@
 		1BD976D5273DDB3A00A899B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD976D4273DDB3A00A899B2 /* ViewController.swift */; };
 		1BD976DA273DDB3B00A899B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD976D9273DDB3B00A899B2 /* Assets.xcassets */; };
 		1BD976DD273DDB3B00A899B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD976DB273DDB3B00A899B2 /* LaunchScreen.storyboard */; };
-		1BFE60E82756955300F8F964 /* Repository.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60E72756955300F8F964 /* Repository.Episode.swift */; };
-		1BFE60EC27569A8400F8F964 /* DataTransfer.Receive.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60EB27569A8400F8F964 /* DataTransfer.Receive.Episode.swift */; };
-		1BFE60EF2756A3C400F8F964 /* Model.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60EE2756A3C400F8F964 /* Model.Episode.swift */; };
-		1BFE60F42756BC4500F8F964 /* Coordinator.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60F32756BC4500F8F964 /* Coordinator.Episode.swift */; };
-		1BFE60F72756BF4100F8F964 /* Scene.Episode.ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60F62756BF4100F8F964 /* Scene.Episode.ViewController.swift */; };
-		1BFE60FA2756BFB200F8F964 /* Worker.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60F92756BFB200F8F964 /* Worker.Episode.swift */; };
-		1BFE60FD2756C0FF00F8F964 /* ViewModel.Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE60FC2756C0FF00F8F964 /* ViewModel.Episode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B267C8E2965EBE2006A80BA /* Episode */ = {isa = PBXFileReference; lastKnownFileType = text; name = Episode; path = RickAndMortyApp/Scenes/Character/Episode; sourceTree = SOURCE_ROOT; };
 		1B423B202755BAF100E6E0CD /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1B5BB5CE2965B7F30009AAE6 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		1B5BB5CF2965B9120009AAE6 /* Character */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Character; sourceTree = "<group>"; };
@@ -40,13 +34,6 @@
 		1BD976D9273DDB3B00A899B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BD976DC273DDB3B00A899B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BD976DE273DDB3B00A899B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BFE60E72756955300F8F964 /* Repository.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.Episode.swift; sourceTree = "<group>"; };
-		1BFE60EB27569A8400F8F964 /* DataTransfer.Receive.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransfer.Receive.Episode.swift; sourceTree = "<group>"; };
-		1BFE60EE2756A3C400F8F964 /* Model.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Episode.swift; sourceTree = "<group>"; };
-		1BFE60F32756BC4500F8F964 /* Coordinator.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.Episode.swift; sourceTree = "<group>"; };
-		1BFE60F62756BF4100F8F964 /* Scene.Episode.ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.Episode.ViewController.swift; sourceTree = "<group>"; };
-		1BFE60F92756BFB200F8F964 /* Worker.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.Episode.swift; sourceTree = "<group>"; };
-		1BFE60FC2756C0FF00F8F964 /* ViewModel.Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.Episode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +48,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B267C8D2965EBC3006A80BA /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				1B267C8E2965EBE2006A80BA /* Episode */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
 		1B5BB5CB2965B7340009AAE6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1B267C8D2965EBC3006A80BA /* Episode */,
 				1B5BB5CC2965B7400009AAE6 /* Character */,
 			);
 			path = Scenes;
@@ -117,7 +113,6 @@
 				1B5BB5CB2965B7340009AAE6 /* Scenes */,
 				1BB38BD727C572FF007A49D0 /* Mock */,
 				1BD976E5273DDDF600A899B2 /* Core */,
-				1BFE60E52756950100F8F964 /* Episode */,
 				1BD976E4273DDDE200A899B2 /* Location */,
 				1BD976D0273DDB3A00A899B2 /* AppDelegate.swift */,
 				1BB38BDC27C573C8007A49D0 /* JSONLoader.swift */,
@@ -152,84 +147,6 @@
 			children = (
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		1BFE60E52756950100F8F964 /* Episode */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60F22756BC3300F8F964 /* Coordinator */,
-				1BFE60ED2756A39E00F8F964 /* Model */,
-				1BFE60E62756953300F8F964 /* Repository */,
-				1BFE60F52756BF1B00F8F964 /* Scene */,
-				1BFE60FB2756BFBB00F8F964 /* ViewModel */,
-				1BFE60F82756BF9B00F8F964 /* Worker */,
-			);
-			path = Episode;
-			sourceTree = "<group>";
-		};
-		1BFE60E62756953300F8F964 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60E9275699F900F8F964 /* DataTransfer */,
-				1BFE60E72756955300F8F964 /* Repository.Episode.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		1BFE60E9275699F900F8F964 /* DataTransfer */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60EA27569A6C00F8F964 /* Receive */,
-			);
-			path = DataTransfer;
-			sourceTree = "<group>";
-		};
-		1BFE60EA27569A6C00F8F964 /* Receive */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60EB27569A8400F8F964 /* DataTransfer.Receive.Episode.swift */,
-			);
-			path = Receive;
-			sourceTree = "<group>";
-		};
-		1BFE60ED2756A39E00F8F964 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60EE2756A3C400F8F964 /* Model.Episode.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1BFE60F22756BC3300F8F964 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60F32756BC4500F8F964 /* Coordinator.Episode.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		1BFE60F52756BF1B00F8F964 /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60F62756BF4100F8F964 /* Scene.Episode.ViewController.swift */,
-			);
-			path = Scene;
-			sourceTree = "<group>";
-		};
-		1BFE60F82756BF9B00F8F964 /* Worker */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60F92756BFB200F8F964 /* Worker.Episode.swift */,
-			);
-			path = Worker;
-			sourceTree = "<group>";
-		};
-		1BFE60FB2756BFBB00F8F964 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE60FC2756C0FF00F8F964 /* ViewModel.Episode.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B44E4F6A539ADF76C10F9709 /* Frameworks */ = {
@@ -314,18 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B423B212755BAF100E6E0CD /* Observable.swift in Sources */,
-				1BFE60FD2756C0FF00F8F964 /* ViewModel.Episode.swift in Sources */,
 				1BD976D5273DDB3A00A899B2 /* ViewController.swift in Sources */,
 				1BB38BEA27C58C2F007A49D0 /* Mock.swift in Sources */,
-				1BFE60EC27569A8400F8F964 /* DataTransfer.Receive.Episode.swift in Sources */,
 				1BD976D1273DDB3A00A899B2 /* AppDelegate.swift in Sources */,
 				1BD976D3273DDB3A00A899B2 /* SceneDelegate.swift in Sources */,
-				1BFE60F72756BF4100F8F964 /* Scene.Episode.ViewController.swift in Sources */,
-				1BFE60FA2756BFB200F8F964 /* Worker.Episode.swift in Sources */,
-				1BFE60E82756955300F8F964 /* Repository.Episode.swift in Sources */,
-				1BFE60F42756BC4500F8F964 /* Coordinator.Episode.swift in Sources */,
 				1BB38BDD27C573C9007A49D0 /* JSONLoader.swift in Sources */,
-				1BFE60EF2756A3C400F8F964 /* Model.Episode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

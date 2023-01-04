@@ -48,5 +48,7 @@ extension CharacterListViewModel: CharacterListViewModelProtocol {
         }
     }
     
-    func didSelect(_ character: Character) {}
+    func didSelect(_ character: Character) {
+        worker.didSelect(character)
+    }
 }

@@ -1,9 +1,11 @@
 import Core
 import UIKit
+import Episode
 
 // MARK: - CharacterCoordinatorProtocol
 public protocol CharacterCoordinatorProtocol {
     func instatiate()
+    func sendToCharacterDetail(_ character: Character, episodes: [Episode])
 }
 
 // MARK: - CharacterCoordinator
@@ -33,5 +35,11 @@ extension CharacterCoordinator: CoordinatorProtocol {
 extension CharacterCoordinator: CharacterCoordinatorProtocol {
     public func instatiate() {
         start()
+    }
+    
+    public func sendToCharacterDetail(_ character: Character, episodes: [Episode]) {
+        let viewModel: CharacterDetailViewModelProtocol = CharacterDetailViewModel(character: character, episodes: episodes)
+        let viewController: CharacterDetailViewController = .init(viewModel: viewModel)
+        navController.pushViewController(viewController, animated: true)
     }
 }
