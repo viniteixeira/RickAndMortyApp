@@ -9,14 +9,17 @@ let package = Package(
         .library(
             name: "Core",
             targets: ["Core"]),
-        .library(name: "CoreUI",
-                 targets: ["CoreUI"])
+        .library(
+            name: "CoreUI",
+            targets: ["CoreUI"])
     ],
     dependencies: [],
     targets: [
         .target(
             name: "Core",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .process("Service/Services.plist")]),
         .target(
             name: "CoreUI",
             dependencies: []),

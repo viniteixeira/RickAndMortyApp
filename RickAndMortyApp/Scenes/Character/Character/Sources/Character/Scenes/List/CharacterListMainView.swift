@@ -1,79 +1,57 @@
 import UIKit
-import Core
+import CoreUI
 
-class CharacterListMainView: UIView, CodeView {
+class CharacterListMainView: UIView {
 
     // MARK: Components
-    private let tableView = UITableView()
+    private let tableView: UITableView = {
+        let tableView: UITableView = .init()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
 
-    // MARK: Properties
-    private var viewModel: ViewModel.Character
-
-    // MARK: Initializers
-    init(viewModel: ViewModel.Character) {
-        self.viewModel = viewModel
+    // MARK: Inits
+    init() {
         super.init(frame: .zero)
         setupView()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    // MARK: Methods
+// MARK: - CodeView
+extension CharacterListMainView: CodeView {
+    func buildViewHierarchy() {
+        addSubview(tableView)
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    func setupConfigs() {
+        backgroundColor = UIColor(named: "PrimaryColor")
+
+        tableView.backgroundColor = .clear
+        tableView.register(CharacterListTableViewCell.self, forCellReuseIdentifier: CharacterListTableViewCell.identifier)
+    }
+}
+
+// MARK: - Internal Methods
+extension CharacterListMainView {
     func reloadData() {
         tableView.reloadData()
     }
-
-    // MARK: CodeView
-//    func buildViewHierarchy() {
-//        addSubview(tableView)
-//    }
-//
-//    func setupConstraints() {
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-//        ])
-//    }
-//
-//    func setupAdditionalConfiguration() {
-//        backgroundColor = UIColor(named: "PrimaryColor")
-//
-//        tableView.backgroundColor = .clear
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.register(Cell.self, forCellReuseIdentifier: "Cell")
-//    }
-}
-
-extension CharacterListMainView: CodeView {
     
-}
-
-// MARK: - UITableViewDataSource
-extension Scenes.Character.ListView: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.characters.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
-        cell.character = viewModel.characters[indexPath.row]
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension Scenes.Character.ListView: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.selected(viewModel.characters[indexPath.row])
+    func setupTableView(dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
+        tableView.dataSource = dataSource
+        tableView.delegate = delegate
     }
 }
