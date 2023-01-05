@@ -25,6 +25,10 @@ let package = Package(
                            .product(name: "CoreUI", package: "Core")]),
         .testTarget(
             name: "CharacterTests",
-            dependencies: ["Character"]),
+            dependencies: ["Character",
+                          "Core",
+                          "Episode"],
+            resources: [.process("Resources")]
+        ),
     ]
 )
