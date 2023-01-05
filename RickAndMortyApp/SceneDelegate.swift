@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Character
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,13 +14,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     // MARK: Properties
-    var coordinator: CoordinatorCharacterProtocol?
+    var coordinator: CharacterCoordinatorProtocol?
 
     // MARK: UIWindowSceneDelegate
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         let navController = UINavigationController()
-        coordinator = Coordinator.Character(navController: navController)
+        coordinator = CharacterCoordinator(navController: navController)
         coordinator?.instatiate()
         window = UIWindow(frame: .zero)
         window?.makeKeyAndVisible()
